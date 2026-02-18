@@ -1,0 +1,46 @@
+PS C:\Users\Admin\skills-change-commit-history> git rm .env
+rm '.env'
+PS C:\Users\Admin\skills-change-commit-history> git config --global user.email "inder.khosya30@gmail.com"
+PS C:\Users\Admin\skills-change-commit-history> git commit -m "remove .env file"
+[main 2e7bfcb] remove .env file
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 .env
+PS C:\Users\Admin\skills-change-commit-history> git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch.env' --prune-empty --tag-name-filter cat -- --all
+WARNING: git-filter-branch has a glut of gotchas generating mangled history
+         rewrites.  Hit Ctrl-C before proceeding to abort, then use an
+         alternative filtering tool such as 'git filter-repo'
+         (https://github.com/newren/git-filter-repo/) instead.  See the
+         filter-branch manual page for more details; to squelch this warning,
+         set FILTER_BRANCH_SQUELCH_WARNING=1.
+Proceeding with filter-branch...
+
+Rewrite b9c636720cfcf682c7014b1598005090882f4ecd (1/5) (0 seconds passed, remaining 0 predicted)    error: unknown option `ignore-unmatch.env'
+usage: git rm [<options>] [--] <file>...
+
+    -n, --dry-run         dry run
+    -q, --quiet           do not list removed files
+    --cached              only remove from the index
+    -f, --force           override the up-to-date check
+    -r                    allow recursive removal
+    --ignore-unmatch      exit with a zero status even if nothing matched
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+index filter failed: git rm --cached --ignore-unmatch.env
+PS C:\Users\Admin\skills-change-commit-history> git push origin --force -all
+error: did you mean `--all` (with two dashes)?
+PS C:\Users\Admin\skills-change-commit-history>
+PS C:\Users\Admin\skills-change-commit-history> git push origin --force --all
+info: please complete authentication in your browser...
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 225 bytes | 225.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/ijyadav/skills-change-commit-history.git
+   ef33da0..2e7bfcb  main -> main
+PS C:\Users\Admin\skills-change-commit-history> git push
+Everything up-to-date
